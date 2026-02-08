@@ -1,0 +1,263 @@
+:root {
+  color-scheme: dark;
+
+  /* Surface hierarchy aligned with COLOR_SYSTEM.md */
+  --canvas: hsl(220 24% 6%);
+  --recessed: hsl(220 22% 10%);
+  --base: hsl(220 20% 14%);
+  --elevated: hsl(220 18% 18%);
+
+  --foreground: hsl(215 42% 94%);
+  --foreground-70: hsl(215 28% 74%);
+  --foreground-60: hsl(215 19% 63%);
+  --foreground-50: hsl(215 17% 54%);
+
+  --border-10: hsl(215 25% 85% / 0.1);
+  --border-20: hsl(215 25% 85% / 0.2);
+  --ring: hsl(220 90% 64% / 0.55);
+
+  --primary: hsl(220 90% 62%);
+  --primary-hover: hsl(220 90% 66%);
+  --primary-fg: hsl(220 30% 98%);
+
+  --success: hsl(145 52% 49%);
+  --error: hsl(5 72% 60%);
+  --info: hsl(205 67% 66%);
+
+  --font-main: "Avenir Next", "Trebuchet MS", "Gill Sans", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  width: 372px;
+  padding: 0;
+  overflow: hidden;
+  background: var(--canvas);
+}
+
+body {
+  border-radius: 0;
+  font-family: var(--font-main);
+  color: var(--foreground);
+}
+
+.app {
+  display: grid;
+  gap: 6px;
+  padding: 8px;
+  border-radius: 0;
+  border: 1px solid var(--border-10);
+  background: var(--base);
+  min-height: 0;
+}
+
+.meta-row {
+  display: flex;
+  gap: 5px;
+  flex-wrap: wrap;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  min-height: 20px;
+  border-radius: 999px;
+  padding: 0 8px;
+  border: 1px solid var(--border-20);
+  background: var(--elevated);
+  color: var(--foreground-70);
+  font-size: 11px;
+  font-weight: 650;
+  white-space: nowrap;
+}
+
+.chip.host {
+  color: var(--foreground);
+}
+
+.url-line {
+  margin: 0;
+  padding: 6px 8px;
+  border-radius: 8px;
+  border: 1px solid var(--border-10);
+  background: var(--recessed);
+  color: var(--foreground-50);
+  font-size: 11px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.field {
+  display: grid;
+  gap: 4px;
+}
+
+.field > span {
+  color: var(--foreground-70);
+  font-size: 11px;
+  font-weight: 620;
+}
+
+.group-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 108px;
+  gap: 6px;
+}
+
+input[type="text"],
+select {
+  width: 100%;
+  height: 32px;
+  border-radius: 8px;
+  border: 1px solid var(--border-20);
+  background: var(--elevated);
+  color: var(--foreground);
+  padding: 0 9px;
+  font-size: 13px;
+  outline: none;
+}
+
+input[type="text"]::placeholder {
+  color: var(--foreground-50);
+}
+
+input[type="text"]:focus,
+select:focus {
+  border-color: var(--ring);
+  box-shadow: 0 0 0 2px var(--ring);
+}
+
+.preview {
+  display: grid;
+  gap: 4px;
+  border-radius: 8px;
+  border: 1px solid var(--border-20);
+  background: var(--base);
+  padding: 7px 9px;
+}
+
+.preview-title {
+  font-size: 13px;
+  font-weight: 700;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.preview-group {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: var(--foreground-70);
+}
+
+.swatch {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 1px solid hsl(0 0% 0% / 0.25);
+  background: #4b82ff;
+  flex: 0 0 auto;
+}
+
+.actions {
+  display: grid;
+  gap: 6px;
+}
+
+.actions.two {
+  grid-template-columns: 1fr 1fr;
+}
+
+.actions.three {
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.btn {
+  height: 32px;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0 8px;
+  font-size: 12px;
+  font-weight: 700;
+  font-family: var(--font-main);
+  cursor: pointer;
+  transition: background 110ms ease, border-color 110ms ease, transform 110ms ease;
+}
+
+.btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.btn:not(:disabled):hover {
+  transform: translateY(-0.5px);
+}
+
+.btn.primary {
+  background: var(--primary);
+  color: var(--primary-fg);
+}
+
+.btn.primary:not(:disabled):hover {
+  background: var(--primary-hover);
+}
+
+.btn.secondary {
+  background: var(--elevated);
+  border-color: var(--border-20);
+  color: var(--foreground);
+}
+
+.btn.secondary:not(:disabled):hover {
+  background: hsl(220 18% 22%);
+}
+
+.btn.ghost {
+  background: var(--recessed);
+  border-color: var(--border-10);
+  color: var(--foreground-70);
+}
+
+.btn.ghost:not(:disabled):hover {
+  background: hsl(220 22% 14%);
+}
+
+.btn.ghost.danger {
+  color: var(--error);
+}
+
+.status {
+  margin: 0;
+  min-height: 24px;
+  border-radius: 8px;
+  border: 1px solid var(--border-10);
+  background: var(--recessed);
+  color: var(--foreground-70);
+  padding: 6px 8px;
+  font-size: 11px;
+  line-height: 1.25;
+}
+
+.status.success {
+  color: var(--success);
+}
+
+.status.error {
+  color: var(--error);
+}
+
+.version {
+  margin: 0;
+  text-align: right;
+  color: var(--foreground-50);
+  font-size: 10px;
+  line-height: 1;
+}

@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Rename Tab</title>
+    <link rel="stylesheet" href="popup.css">
+  </head>
+  <body>
+    <main class="app">
+      <div class="meta-row">
+        <span id="hostValue" class="chip host">Current page</span>
+        <span id="ruleBadge" class="chip">Rule: none</span>
+        <span id="groupBadge" class="chip">Ungrouped</span>
+      </div>
+
+      <p id="urlValue" class="url-line"></p>
+
+      <label class="field" for="titleInput">
+        <span>Tab title</span>
+        <input id="titleInput" type="text" maxlength="120" placeholder="e.g. V3 DEV - Keystone MAX">
+      </label>
+
+      <div class="group-grid">
+        <label class="field" for="groupTitleInput">
+          <span>Group name</span>
+          <input id="groupTitleInput" type="text" maxlength="80" placeholder="e.g. Deep Work">
+        </label>
+
+        <label class="field color-field" for="groupColorSelect">
+          <span>Color</span>
+          <select id="groupColorSelect">
+            <option value="blue">Blue</option>
+            <option value="red">Red</option>
+            <option value="yellow">Yellow</option>
+            <option value="green">Green</option>
+            <option value="pink">Pink</option>
+            <option value="purple">Purple</option>
+            <option value="cyan">Cyan</option>
+            <option value="orange">Orange</option>
+            <option value="grey">Grey</option>
+          </select>
+        </label>
+      </div>
+
+      <div class="preview" aria-live="polite">
+        <div id="previewTitle" class="preview-title">Tab title preview</div>
+        <div class="preview-group">
+          <span id="previewColor" class="swatch"></span>
+          <span id="previewGroupName">Ungrouped</span>
+        </div>
+      </div>
+
+      <button id="applyTitleAndGroupBtn" class="btn primary" type="button">Apply Title + Group</button>
+
+      <div class="actions two">
+        <button id="applyOnceBtn" class="btn secondary" type="button">Apply Title Only</button>
+        <button id="applyGroupBtn" class="btn secondary" type="button">Apply Group Only</button>
+      </div>
+
+      <div class="actions three">
+        <button id="saveRuleBtn" class="btn ghost" type="button">Save Rule</button>
+        <button id="restoreBtn" class="btn ghost" type="button">Restore</button>
+        <button id="clearRuleBtn" class="btn ghost danger" type="button">Clear Rule</button>
+      </div>
+
+      <p id="status" class="status info" role="status" aria-live="polite"></p>
+      <p id="versionValue" class="version" aria-label="Extension version"></p>
+    </main>
+
+    <script src="popup.js"></script>
+  </body>
+</html>
