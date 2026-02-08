@@ -2,6 +2,16 @@
 
 Local Chrome extension (Manifest V3) for renaming tabs and managing tab groups, with no third-party dependencies.
 
+## Why This Exists
+
+I built this because I did not want to trust random closed-source extensions in the Chrome Web Store for something as sensitive as tab behavior and page scripting permissions.
+
+This project is intentionally:
+
+- Open source and auditable.
+- Local-first (no external network calls from extension code).
+- Usable by anyone who wants a transparent tab renaming + tab grouping tool.
+
 ## Core Details
 
 ### Scope
@@ -43,6 +53,12 @@ Local Chrome extension (Manifest V3) for renaming tabs and managing tab groups, 
 - No external network calls are made by extension code.
 - No analytics, tracking, or remote scripts.
 - User data lives in local extension storage.
+
+### License
+
+- This project is licensed under the MIT License.
+- The MIT License applies to this entire repository unless a file explicitly states otherwise.
+- See `/Users/tsmith/dev/codex-workspace/ts-open-chrome-tools/LICENSE`.
 
 ## Setup Instructions
 
